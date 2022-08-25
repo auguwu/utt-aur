@@ -1,0 +1,24 @@
+name: Publish to AUR
+on:
+  release:
+    types:
+      - published
+jobs:
+  release:
+    name: Publish to AUR
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Publish AUR package
+        uses: ulises-jeremias/github-actions-aur-publish@master
+        with:
+          pkgname: utt-bin
+          pkgbuild: ./PKGBUILD
+          commit_username: auguwu
+          commit_email: cutie@floofy.dev
+          ssh_private_key: ${{ secrets.PRIVATE_KEY }}
+          commit_message: "chore: update aur package `utt-bin`"
+          ssh_keyscan_types: rsa,dsa,ecdsa,ed25519
+          update_pkgver: false
