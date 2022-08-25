@@ -5,6 +5,5 @@ Read the original repository's [README](https://github.com/queer/utt) on what **
 
 ## Installation
 ```sh
-yay -S utt-git # Compiles from the source repository, adds Java 17 as a build dependency
 yay -S utt-bin # Downloads a binary from the GitHub Releases page
 ```
